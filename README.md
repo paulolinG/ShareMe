@@ -1,1 +1,0 @@
-Minimalistic file sharing platform
