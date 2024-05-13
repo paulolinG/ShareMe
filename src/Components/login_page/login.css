@@ -1,0 +1,312 @@
+/* Default button css configurations
+*/
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+/* Transition effect for when the login button is hovered
+*/
+
+button.login-button:hover,
+button.google-login:hover,
+button.login-status:hover {
+  transform: translateY(-10px);
+}
+
+/* When any of the buttons in the login-box are hovered, we reduce the opacity of other textual elements,
+   providing an emphasis effect.
+*/
+
+.container-login:has(button.fade-on-hover:hover)
+  .fade-on-hover:not(button.fade-on-hover:hover) {
+  opacity: 0.2;
+}
+
+/* Window configurations (spans the entire document)
+*/
+
+.window {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+/* dark theme for window color scheme
+*/
+
+.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+/* dark theme for box color scheme
+*/
+
+.dark-box {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(255, 249, 222, 1);
+}
+
+.login-status[loginStatus="1"] > .login-status-placeholder {
+  visibility: hidden;
+  display: none;
+}
+
+.login-status[loginStatus="0"] > .login-failed {
+  visibility: hidden;
+  display: none;
+}
+
+.container-login {
+  font-family: "Courier", monospace;
+  display: grid;
+  grid-template-rows: repeat(5, 100px);
+  grid-template-columns: repeat(4, 100px);
+  width: 400px;
+  height: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+h2.pointer {
+  text-align: right;
+  grid-area: 1 / 1 / 2 / 3;
+  font-size: xx-large;
+  transition: opacity 0.3s ease-in-out;
+}
+
+button.login-button {
+  text-align: center;
+  grid-area: 1 / 3 / 2 / 5;
+  font-size: xx-large;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+button.google-login {
+  grid-area: 4 / 1 / 5 / 5;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1rem;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+button.login-status {
+  grid-area: 5 / 1 / 6 / 5;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1rem;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  padding-left: 60px;
+  margin: 10px -10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  color: #fff;
+  width: 85%;
+  height: 40%;
+}
+
+.username-group {
+  grid-area: 2 / 1 / 3 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.username-icon {
+  color: #fff;
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.password-group {
+  grid-area: 3 / 1 / 4 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-icon {
+  color: #fff;
+  grid-area: 3 / 1 / 4 / 2;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 20px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.switch-dark {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+}
+
+.theme-button {
+  width: 50px;
+  height: 25px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  border-radius: 12.5px;
+  display: fixed;
+  justify-items: left;
+  align-items: center;
+  border: none;
+}
+
+button.login-button[slide="1"],
+button.google-login[slide="1"],
+button.login-status[slide="1"] {
+  animation-name: text-color-change;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+button.login-button[slide="2"],
+button.google-login[slide="2"],
+button.login-status[slide="2"] {
+  animation-name: text-color-change-reverse;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+.container-login[slide="1"],
+.window[slide="1"],
+.theme-button[slide="1"] {
+  animation-name: fade-box;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+.container-login[slide="2"],
+.window[slide="2"],
+.theme-button[slide="2"] {
+  animation-name: fade-box-reverse;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+.switch-dark[slide="1"] {
+  animation-name: slide;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+.switch-dark[slide="2"] {
+  animation-name: slide-reverse;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+}
+
+@keyframes slide {
+  0% {
+    transform: translate(0px);
+    background-color: white;
+  }
+
+  100% {
+    transform: translate(20px);
+    background-color: black;
+  }
+}
+
+@keyframes slide-reverse {
+  0% {
+    transform: translate(20px);
+    background-color: black;
+  }
+
+  100% {
+    transform: translate(0px);
+    background-color: white;
+  }
+}
+
+@keyframes fade-box {
+  0% {
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 249, 222, 1);
+  }
+
+  100% {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes fade-box-reverse {
+  0% {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  100% {
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 249, 222, 1);
+  }
+}
+
+@keyframes text-color-change {
+  0% {
+    color: white;
+  }
+
+  100% {
+    color: black;
+  }
+}
+
+@keyframes text-color-change-reverse {
+  0% {
+    color: black;
+  }
+
+  100% {
+    color: white;
+  }
+}
