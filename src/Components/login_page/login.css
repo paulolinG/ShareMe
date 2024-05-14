@@ -52,14 +52,10 @@ button.login-status:hover {
   box-shadow: 0 0 10px rgba(255, 249, 222, 1);
 }
 
-.login-status[loginStatus="1"] > .login-status-placeholder {
-  visibility: hidden;
-  display: none;
-}
-
-.login-status[loginStatus="0"] > .login-failed {
-  visibility: hidden;
-  display: none;
+.login-status[loginstatus="1"] > .login-status-placeholder {
+  animation-name: login-failed;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .container-login {
@@ -308,5 +304,14 @@ button.login-status[slide="2"] {
 
   100% {
     color: white;
+  }
+}
+
+@keyframes login-failed {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -53,10 +53,18 @@ export const Login = () => {
 
   const RetrieveData = async () => {
     try {
+      if (Email === "") {
+        SetLoginStatus(LOGIN_FAILED);
+        return;
+      }
       const documentReference = doc(db, "users", Email);
       const documentSnapshot = await getDoc(documentReference);
-      if (!documentSnapshot.exists()) {
+      if (
+        !documentSnapshot.exists() ||
+        !(documentSnapshot.data().password === Password)
+      ) {
         SetLoginStatus(LOGIN_FAILED);
+        return;
       }
     } catch (err) {
       console.error(err);
@@ -68,19 +76,29 @@ export const Login = () => {
       <div className="window dark-theme" slide={Slide}>
         <div className="container-login dark-box" slide={Slide}>
           <h2 className="pointer fade-on-hover"> ( ＾◡＾)っ </h2>
-          <button className="login-button fade-on-hover" slide={Slide}>
+          <button
+            className="login-button fade-on-hover"
+            slide={Slide}
+            onClick={RetrieveData}
+          >
             LOGIN
           </button>
           <button className="google-login fade-on-hover" slide={Slide}>
             @GOOGLE
           </button>
           <button
-            className="login-status fade-on-hover"
+            className="login-status"
             slide={Slide}
-            loginStatus={LoginStatus}
+            loginstatus={LoginStatus}
           >
-            <span className="login-status-placeholder"> ( *・∀・)ノ゛ </span>
-            <span className="login-failed"> TRY AGAIN </span>
+            <span
+              className="login-status-placeholder"
+              onAnimationEnd={() => {
+                SetLoginStatus(0);
+              }}
+            >
+              {LoginStatus === 0 ? "SIGN IN" : "TRY AGAIN"}
+            </span>
           </button>
           <div className="username-group">
             <input
