@@ -1,0 +1,34 @@
+.window {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.signin-text {
+  color: white;
+  font-size: xx-large;
+}
+
+input[type="text"] {
+  margin: 10px;
+  height: 2rem;
+  width: 15rem;
+  border-radius: 1rem;
+  padding-left: 1rem;
+}
+
+.emotes {
+  visibility: visible;
+  color: white;
+  margin: 20px;
+  font-size: xx-large;
+  font-weight: bold;
+}

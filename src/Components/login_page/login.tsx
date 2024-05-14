@@ -1,9 +1,5 @@
 import { auth, googleProvider } from "../../config/firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import "./login.css";
 import { db } from "../../config/firebase";
@@ -27,25 +23,9 @@ export const Login = () => {
 
   const UserCollection = collection(db, "users");
 
-  const SignIn = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, Email, Password);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   const SignInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const LogOut = async () => {
-    try {
-      await signOut(auth);
     } catch (err) {
       console.error(err);
     }
@@ -83,7 +63,11 @@ export const Login = () => {
           >
             LOGIN
           </button>
-          <button className="google-login fade-on-hover" slide={Slide}>
+          <button
+            className="google-login fade-on-hover"
+            slide={Slide}
+            onClick={SignInWithGoogle}
+          >
             @GOOGLE
           </button>
           <button

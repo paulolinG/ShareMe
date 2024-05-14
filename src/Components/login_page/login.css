@@ -55,7 +55,6 @@ button.login-status:hover {
 .login-status[loginstatus="1"] > .login-status-placeholder {
   animation-name: login-failed;
   animation-duration: 1s;
-  animation-timing-function: ease-out;
 }
 
 .container-login {
