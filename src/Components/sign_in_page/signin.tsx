@@ -11,7 +11,7 @@ export const SignIn = () => {
   const [reenteredPassword, setReenteredPassword] = useState("");
   const [username, setUsername] = useState("");
 
-  const signIn = async () => {
+  const createUser = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
     } catch (err) {
@@ -24,6 +24,7 @@ export const SignIn = () => {
       <div className="window">
         <div className="emotes"> (づ｡◕‿‿◕｡)づ </div>
         <div className="signin-text"> SIGN IN </div>
+        <input type="text" className="email" placeholder="Email" />
         <input type="text" className="username" placeholder="Username" />
         <input type="text" className="password" placeholder="Password" />
         <input
@@ -31,7 +32,10 @@ export const SignIn = () => {
           className="password"
           placeholder="Re-enter Password"
         />
-        <input type="text" className="email" placeholder="Email" />
+        <div className="speech-bubble"> Passwords need to match!</div>
+        <button className="signin-button" onClick={createUser}>
+          Create Account
+        </button>
       </div>
     </>
   );

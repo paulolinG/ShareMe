@@ -32,3 +32,14 @@ input[type="text"] {
   font-size: xx-large;
   font-weight: bold;
 }
+
+.signin-button {
+  background-color: white;
+  height: 5rem;
+  width: 15rem;
+  border-radius: 2.5rem;
+  margin: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  font-weight: bold;
+}
