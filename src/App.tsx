@@ -8,7 +8,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<SignIn />} />
+          <Route index element={<Login />} />
           <Route path="/videos" element={<VideoSite />} />
         </Routes>
       </BrowserRouter>

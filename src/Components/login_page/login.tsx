@@ -1,5 +1,5 @@
 import { auth, googleProvider } from "../../config/firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import "./login.css";
 import { db } from "../../config/firebase";
@@ -33,21 +33,9 @@ export const Login = () => {
 
   const RetrieveData = async () => {
     try {
-      if (Email === "") {
-        SetLoginStatus(LOGIN_FAILED);
-        return;
-      }
-      const documentReference = doc(db, "users", Email);
-      const documentSnapshot = await getDoc(documentReference);
-      if (
-        !documentSnapshot.exists() ||
-        !(documentSnapshot.data().password === Password)
-      ) {
-        SetLoginStatus(LOGIN_FAILED);
-        return;
-      }
+      await signInWithEmailAndPassword(auth, Email, Password);
     } catch (err) {
-      console.error(err);
+      SetLoginStatus(LOGIN_FAILED);
     }
   };
 

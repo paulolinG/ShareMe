@@ -33,13 +33,41 @@ input[type="text"] {
   font-weight: bold;
 }
 
-.signin-button {
+.signin-button,
+.direct-to-login {
   background-color: white;
   height: 5rem;
   width: 15rem;
   border-radius: 2.5rem;
-  margin: 10px;
+  margin: 20px;
   font-family: "Courier New", Courier, monospace;
   font-size: large;
   font-weight: bold;
+  transition: transform 0.1s ease-in-out;
+}
+
+.signin-button:hover,
+.direct-to-login:hover {
+  transform: translateY(-10px);
+}
+
+.nonmatching-passwords {
+  position: absolute;
+  z-index: 1;
+  left: 65%;
+  background-color: lightyellow;
+  padding: 20px;
+  top: 17%;
+}
+
+.weak-password {
+  position: absolute;
+  left: 70%;
+  top: 10%;
+  background-color: lightblue;
+  padding: 20px;
+}
+
+.hidden {
+  visibility: hidden;
 }
